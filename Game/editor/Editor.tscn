@@ -1,0 +1,594 @@
+[gd_scene load_steps=9 format=3 uid="uid://o332f2u3kv4o"]
+
+[ext_resource type="Texture2D" uid="uid://7g55vu2w7mnr" path="res://item.svg" id="1_36k4s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6lp8p"]
+line_spacing = 4.0
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0r4iq"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="Environment" id="Environment_q2fi1"]
+background_mode = 3
+background_energy_multiplier = 3.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bs77f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvtmh"]
+albedo_color = Color(0.427925, 0.376809, 0.00523287, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_blmsv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3v6v"]
+
+[node name="Editor" type="TabContainer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Layout" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Table" type="Panel" parent="Layout"]
+self_modulate = Color(1, 1, 6.51, 1)
+layout_mode = 1
+offset_left = 1043.0
+offset_top = 22.0
+offset_right = 1263.0
+offset_bottom = 343.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/Table"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Layout/Table/VBoxContainer"]
+layout_mode = 2
+text = "Table"
+label_settings = SubResource("LabelSettings_6lp8p")
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layout/Table/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/Table/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Player1" type="Label" parent="Layout/Table/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "- Player 1
+-- Widgets
+---- Health
+-- PlayMat
+----- Deck
+----- Hand
+----- Discard"
+
+[node name="Player2" type="Label" parent="Layout/Table/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "- Player 2
+-- Widgets
+---- Health
+-- PlayMat
+----- Deck
+----- Hand
+----- Discard"
+
+[node name="Inspector" type="Panel" parent="Layout"]
+self_modulate = Color(1, 1, 6.51, 1)
+layout_mode = 0
+offset_left = 1043.0
+offset_top = 371.0
+offset_right = 1263.0
+offset_bottom = 668.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/Inspector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+text = "Inspector"
+label_settings = SubResource("LabelSettings_0r4iq")
+uppercase = true
+
+[node name="Label2" type="Label" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+text = "Editing Zone: Deck"
+
+[node name="x" type="PanelContainer" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/Inspector/VBoxContainer/x"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer/x/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "X"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/Inspector/VBoxContainer/x/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200"
+alignment = 1
+
+[node name="y" type="PanelContainer" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/Inspector/VBoxContainer/y"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer/y/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Y"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/Inspector/VBoxContainer/y/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200"
+alignment = 1
+
+[node name="width" type="PanelContainer" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/Inspector/VBoxContainer/width"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer/width/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Width"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/Inspector/VBoxContainer/width/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200"
+alignment = 1
+
+[node name="height" type="PanelContainer" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/Inspector/VBoxContainer/height"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer/height/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Height"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/Inspector/VBoxContainer/height/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200"
+alignment = 1
+
+[node name="texture" type="PanelContainer" parent="Layout/Inspector/VBoxContainer"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/Inspector/VBoxContainer/texture"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/Inspector/VBoxContainer/texture/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Texture"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/Inspector/VBoxContainer/texture/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "proj://images/zone_bg"
+alignment = 1
+
+[node name="ContentDrawer" type="Panel" parent="Layout"]
+self_modulate = Color(1, 1, 6.51, 1)
+layout_mode = 1
+offset_left = 27.0
+offset_top = 486.0
+offset_right = 1024.0
+offset_bottom = 667.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/ContentDrawer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Layout/ContentDrawer/VBoxContainer"]
+layout_mode = 2
+text = "Content Drawer
+"
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/ContentDrawer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="FolderPanel" type="PanelContainer" parent="Layout/ContentDrawer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Folders" type="VBoxContainer" parent="Layout/ContentDrawer/VBoxContainer/HBoxContainer/FolderPanel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/ContentDrawer/VBoxContainer/HBoxContainer/FolderPanel/Folders"]
+layout_mode = 2
+text = "- Project
+--- Images
+--- Sounds
+--- Scripts"
+
+[node name="ContentPanel" type="PanelContainer" parent="Layout/ContentDrawer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="ItemList" parent="Layout/ContentDrawer/VBoxContainer/HBoxContainer/ContentPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+max_columns = 10
+icon_mode = 0
+item_0/text = "   ZoneBG.png"
+item_0/icon = ExtResource("1_36k4s")
+item_1/text = "Counter.png"
+item_1/icon = ExtResource("1_36k4s")
+item_2/text = "TokenRed.png"
+item_2/icon = ExtResource("1_36k4s")
+item_3/text = "TokenBlue.png"
+item_3/icon = ExtResource("1_36k4s")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Layout"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Layout/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 0
+
+[node name="Node3D" type="Node3D" parent="Layout/SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="Layout/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, -2, 3)
+environment = SubResource("Environment_q2fi1")
+
+[node name="Table" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, -0.173648, -0.984808, 0, 0.984808, -0.173648, -0.4, -0.2, 2)
+mesh = SubResource("PlaneMesh_bs77f")
+surface_material_override/0 = SubResource("StandardMaterial3D_mvtmh")
+
+[node name="Zone" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D/Table"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, -7.45058e-09, 0, 7.45058e-09, 0.2, 0.868285, 0.0137365, 0.746205)
+mesh = SubResource("PlaneMesh_blmsv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3v6v")
+
+[node name="Zone2" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D/Table"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, -7.45058e-09, 0, 7.45058e-09, 0.2, 0.868285, 0.001127, 0.308204)
+mesh = SubResource("PlaneMesh_blmsv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3v6v")
+
+[node name="Zone3" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D/Table"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, -7.45058e-09, 0, 7.45058e-09, 0.2, -0.866984, 0.00247192, -0.771154)
+mesh = SubResource("PlaneMesh_blmsv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3v6v")
+
+[node name="Zone4" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D/Table"]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, -7.45058e-09, 0, 7.45058e-09, 0.2, -0.866984, 0.000936747, -0.330339)
+mesh = SubResource("PlaneMesh_blmsv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3v6v")
+
+[node name="Zone5" type="MeshInstance3D" parent="Layout/SubViewportContainer/SubViewport/Node3D/Table"]
+transform = Transform3D(-0.1, 1.72189e-08, 3.03616e-09, 0, -0.0347296, 0.196962, 8.74228e-09, 0.196962, 0.0347296, -0.866984, 0.0522814, -1.24569)
+mesh = SubResource("PlaneMesh_blmsv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3v6v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509938, 0, 5.40553)
+light_energy = 4.0
+
+[node name="TableScene" type="Panel" parent="Layout"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 95.0
+offset_right = 914.0
+offset_bottom = 395.0
+
+[node name="TextureRect8" type="ColorRect" parent="Layout/TableScene"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 75.0
+offset_bottom = 90.0
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect9" type="ColorRect" parent="Layout/TableScene"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+offset_left = 16.0
+offset_top = 97.0
+offset_right = 76.0
+offset_bottom = 176.0
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect10" type="ColorRect" parent="Layout/TableScene"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+offset_left = 733.0
+offset_top = 125.0
+offset_right = 793.0
+offset_bottom = 204.0
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect11" type="ColorRect" parent="Layout/TableScene"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+offset_left = 733.0
+offset_top = 210.0
+offset_right = 793.0
+offset_bottom = 289.0
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/TableScene"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 307.0
+offset_right = 666.0
+offset_bottom = 386.0
+
+[node name="TextureRect" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect2" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect3" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect4" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect5" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect6" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect7" type="ColorRect" parent="Layout/TableScene/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Layout/TableScene"]
+layout_mode = 1
+offset_left = 191.0
+offset_top = -87.0
+offset_right = 646.0
+offset_bottom = -8.0
+
+[node name="TextureRect" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect2" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect3" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect4" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect5" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect6" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="TextureRect7" type="ColorRect" parent="Layout/TableScene/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.172549, 0.0901961, 1, 1)
+
+[node name="Health" type="PanelContainer" parent="Layout/TableScene"]
+layout_mode = 1
+offset_left = -29.0
+offset_top = -82.0
+offset_right = 174.0
+offset_bottom = -51.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/TableScene/Health"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/TableScene/Health/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/TableScene/Health/VBoxContainer/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/TableScene/Health/VBoxContainer/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8000"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/TableScene/Health/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="Button2" type="Button" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Button3" type="Button" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "*"
+
+[node name="Button4" type="Button" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "/"
+
+[node name="LineEdit" type="LineEdit" parent="Layout/TableScene/Health/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "500"
+alignment = 1
+
+[node name="Health2" type="PanelContainer" parent="Layout/TableScene"]
+layout_mode = 1
+offset_left = 705.0
+offset_top = 317.0
+offset_right = 908.0
+offset_bottom = 383.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/TableScene/Health2"]
+layout_mode = 2
+
+[node name="Box" type="HBoxContainer" parent="Layout/TableScene/Health2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Layout/TableScene/Health2/VBoxContainer/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Layout/TableScene/Health2/VBoxContainer/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8000"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/TableScene/Health2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="Button2" type="Button" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Button3" type="Button" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "*"
+
+[node name="Button4" type="Button" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "/"
+
+[node name="LineEdit" type="LineEdit" parent="Layout/TableScene/Health2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "500"
+alignment = 1
+
+[node name="Player Schema" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Card Schema" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Card Editor" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Event Scripting" type="Panel" parent="."]
+visible = false
+layout_mode = 2
